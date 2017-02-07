@@ -8,14 +8,30 @@ import java.awt.MouseInfo;
 
 /**
  * Created by Alex on 2/3/2017.
+ * Billiard Trainer - Game that simulates a game of Billiards, to help aid players learning the different angles in
+ *                      billiards while having fun.
  */
 class MainGame extends JFrame implements ActionListener {
     javax.swing.Timer myTimer;
     GamePanel game;     // stores all the necessary components in memory, but most are not visible
     GameMenu menu;
+    boolean inGame = false;
+    int difficulty = 0;
 
     public MainGame() {
-        ;
+        super("Billiard-Trainer");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(1280,800);
+
+        myTimer = new javax.swing.Timer(10,this);
+
+        menu = new GameMenu(this);
+        add(menu);
+        game = new GamePanel(this);
+        add(game);
+
+        setResizable(false);
+        setVisible(true);
     }
 
     public void actionPerformed(ActionEvent evt) {
@@ -36,6 +52,7 @@ class GameMenu extends JPanel implements MouseListener{
     public void paintComponent(Graphics g){}
 }
 class GamePanel extends JPanel implements KeyListener{
+    public GamePanel(MainGame m){}
     private boolean []keys;
     public void keyTyped(KeyEvent e) {}
     public void keyPressed(KeyEvent e) {
