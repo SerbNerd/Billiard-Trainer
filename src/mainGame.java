@@ -39,7 +39,8 @@ class MainGame extends JFrame implements ActionListener {
     }
 
     public static void main(String[] arguments) {
-        System.out.println("hey");
+        MainGame frame = new MainGame();
+        //frame.startMusic();
     }
 }
 class GameMenu extends JPanel implements MouseListener{
